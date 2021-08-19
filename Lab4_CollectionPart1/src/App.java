@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 
-
  
 public class App {
    
@@ -10,8 +9,9 @@ public class App {
            GIAITOAN(1),
            HINHHOC(2),
            CURRENCY(3),
-           LISTSTRING(4),
-           TACHCHUOITHANHMANG(5);
+           LISTSTRING(4),           
+           TACHCHUOITHANHMANG(5),
+           HASHMAPJSON(6);
            
            private int value;
            private Menu(int value) {
@@ -27,6 +27,7 @@ public class App {
                    x=in.nextInt();
                 }
                 System.out.println("*****************************************");
+               
            }
        
     public static void main(String[] args) throws Exception {
@@ -40,6 +41,7 @@ public class App {
             System.out.println("Nhan 3 de chuyen mot so thanh tien te");
             System.out.println("Nhan 4 de thao tac voi chuoi");
             System.out.println("Nhan 5 de tach chuoi thanh mang");
+            System.out.println("Nhan 6 de tao mot HashMap<String,String> roi xuat ra cau truc Json");
             System.out.println("=========================================");
             System.out.print("Chon chuc nang:");
             
@@ -48,6 +50,9 @@ public class App {
            Menu menu= Menu.THOAT;
            int n=0,x1,x2,x3;
            String a="";
+
+           String key,value;
+           HashMapJson hashMap=new HashMapJson();
             
             for (Menu s : Menu.values()) {
                 if(chon==s.value){
@@ -57,7 +62,8 @@ public class App {
 
             }
          switch (menu) {
-            case THOAT:                    
+            case THOAT: 
+                    in.close();                   
                     return;
             case GIAITOAN:                
                 System.out.print("Nhap vao mot so N=");
@@ -96,23 +102,43 @@ public class App {
                  String c= in.next();
                  chuoi=new ChuoiKyTu(str,c);
                 System.out.println(chuoi);
-                chuoi.TimChuCaiTuMotKyTU();
+                chuoi.timChuCaiTuMotKyTU();
                 TamDung();
                 break;
             case TACHCHUOITHANHMANG:
-                System.out.println("Chuyen mot mang thanh mot chuoi bang dau '_' ");
+                
                 System.out.println("Chuyen Chuoi 'Hello_I_am_Iron_Man!' Thanh mang nhu sau: ");                
                 chuoi =new ChuoiKyTu("Hello_I_am_Iron_Man!");
-                chuoi.TachChuoiThanhMang();
+                chuoi.tachChuoiThanhMang();
                 System.out.println(chuoi);
+                System.out.println("Chuyen mot mang thanh mot chuoi bang dau '_' ");
                 System.out.println("Nhap vao mot chuoi");
                 a=in.next();
                 chuoi=new ChuoiKyTu(a);              
-                chuoi.TachChuoiThanhMang();
+                chuoi.tachChuoiThanhMang();
                 System.out.println(chuoi);
                 TamDung();
                 break;
-         }
+            case HASHMAPJSON:
+                System.out.print("So cap du lieu muon nhap n=");
+                n=in.nextInt();
+                System.out.println("Nhap key va value theo thu tu");
+                
+                for (int i = 0; i < n; i++) {
+                   
+                    System.out.print("key=");
+                    //in.nextLine();
+                    key=in.next();
+                    System.out.print("value=");
+                    value=in.next();                   
+                    
+                    hashMap.add(key, value);
+                }
+                System.out.println(hashMap);
+                //hashMap.out();
+                TamDung();
+                break;
+            }
       
       
 

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class ChuoiKyTu{
     public String[] str;
@@ -8,7 +8,7 @@ public class ChuoiKyTu{
     public char c;
     public String x;
     List<String> list=new ArrayList<>();
-    Scanner in = new Scanner(System.in);
+   
 
     public ChuoiKyTu() {
         
@@ -22,13 +22,13 @@ public class ChuoiKyTu{
     }
     
     
-    public void TachChuoiThanhMang(){
+    public void tachChuoiThanhMang(){
         str=x.split("_");
 
     }
-    public void TimChuCaiTuMotKyTU(){
+    public void timChuCaiTuMotKyTU(){
         
-        System.out.println("Cac chu cai xuat hien tu ky tu "+c);
+        System.out.println("Cac chu cai dau tien xuat hien tu ky tu "+c);
        
         for (String s : str) {
             char t=s.trim().toUpperCase().charAt(0);
