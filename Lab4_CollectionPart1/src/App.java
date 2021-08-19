@@ -10,7 +10,9 @@ public class App {
            GIAITOAN(1),
            HINHHOC(2),
            CURRENCY(3),
-           LISTSTRING(4);
+           LISTSTRING(4),
+           TACHCHUOITHANHMANG(5);
+           
            private int value;
            private Menu(int value) {
                this.value=value;
@@ -37,13 +39,15 @@ public class App {
             System.out.println("Nhan 2 de giai Hinh hoc");
             System.out.println("Nhan 3 de chuyen mot so thanh tien te");
             System.out.println("Nhan 4 de thao tac voi chuoi");
+            System.out.println("Nhan 5 de tach chuoi thanh mang");
             System.out.println("=========================================");
             System.out.print("Chon chuc nang:");
             
             int chon =in.nextInt();
-            
+            ChuoiKyTu chuoi=new ChuoiKyTu();
            Menu menu= Menu.THOAT;
            int n=0,x1,x2,x3;
+           String a="";
             
             for (Menu s : Menu.values()) {
                 if(chon==s.value){
@@ -79,12 +83,33 @@ public class App {
                 System.out.println(number);
                 TamDung();
                 break;
-            case LISTSTRING:
-                
-                
-                ChuoiKyTu chuoi=new ChuoiKyTu();
+            case LISTSTRING:            
+                System.out.print("Nhap do dai cua Mang n=");
+                n=in.nextInt();
+                String[] str=new String[n];
+                in.nextLine();
+                for(int i=0;i<str.length;i++){
+                str[i]=in.nextLine();
+                }
+          
+                 System.out.println("Nhap vao mot ky tu");
+                 String c= in.next();
+                 chuoi=new ChuoiKyTu(str,c);
                 System.out.println(chuoi);
                 chuoi.TimChuCaiTuMotKyTU();
+                TamDung();
+                break;
+            case TACHCHUOITHANHMANG:
+                System.out.println("Chuyen mot mang thanh mot chuoi bang dau '_' ");
+                System.out.println("Chuyen Chuoi 'Hello_I_am_Iron_Man!' Thanh mang nhu sau: ");                
+                chuoi =new ChuoiKyTu("Hello_I_am_Iron_Man!");
+                chuoi.TachChuoiThanhMang();
+                System.out.println(chuoi);
+                System.out.println("Nhap vao mot chuoi");
+                a=in.next();
+                chuoi=new ChuoiKyTu(a);              
+                chuoi.TachChuoiThanhMang();
+                System.out.println(chuoi);
                 TamDung();
                 break;
          }
