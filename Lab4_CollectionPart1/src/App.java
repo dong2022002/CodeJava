@@ -9,7 +9,8 @@ public class App {
            THOAT(0),
            GIAITOAN(1),
            HINHHOC(2),
-           CURRENCY(3);
+           CURRENCY(3),
+           LISTSTRING(4);
            private int value;
            private Menu(int value) {
                this.value=value;
@@ -35,6 +36,7 @@ public class App {
             System.out.println("Nhan 1 de Giai mot so bai toan");
             System.out.println("Nhan 2 de giai Hinh hoc");
             System.out.println("Nhan 3 de chuyen mot so thanh tien te");
+            System.out.println("Nhan 4 de thao tac voi chuoi");
             System.out.println("=========================================");
             System.out.print("Chon chuc nang:");
             
@@ -77,9 +79,14 @@ public class App {
                 System.out.println(number);
                 TamDung();
                 break;
-
-            
-            }
+            case LISTSTRING:
+                
+                
+                ChuoiKyTu chuoi=new ChuoiKyTu();
+                System.out.println(chuoi);
+                chuoi.TimChuCaiTuMotKyTU();
+                TamDung();
+                break;
          }
       
       
@@ -87,6 +94,6 @@ public class App {
              
         
     }
-
+    }
     
 }
