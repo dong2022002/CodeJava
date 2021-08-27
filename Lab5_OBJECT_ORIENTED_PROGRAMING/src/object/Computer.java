@@ -4,7 +4,7 @@ public class Computer {
     public String hangMT;
     public int ram;
     public int dungLuong;
-    public int tocDoXuLy;    
+    public double tocDoXuLy;    
     public double gia;
     public Computer() {
         
@@ -16,12 +16,20 @@ public class Computer {
         this.tocDoXuLy=tocDoXuLy;
         this.gia=gia;
     }
+    public Computer(String line) {
+        String[] s=line.split(",");
+        this.hangMT=s[0];
+        this.ram=Integer.parseInt(s[1]);
+        this.dungLuong=Integer.parseInt(s[2]);
+        this.tocDoXuLy=Double.parseDouble(s[3]);
+        this.gia=Double.parseDouble(s[4]);
+    }
     @Override
     public String toString() {
         return "May tinh    :"+hangMT+
                "\nRam         :"+ram+
-               "\nDung Luong  :"+dungLuong+
-               "\nToc Do Xu Ly:"+tocDoXuLy+
+               "\nDung Luong  :"+dungLuong+ "GB"+
+               "\nToc Do Xu Ly:"+tocDoXuLy+ "Hz"+
                "\nGia         :"+gia;
     }
 

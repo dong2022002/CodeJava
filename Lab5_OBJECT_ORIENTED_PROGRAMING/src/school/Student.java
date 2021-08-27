@@ -17,11 +17,7 @@ public class Student extends Person {
     }
     @Override
     public String toString() {
-        // return "Ho va ten    :"+hoVaTen+
-        //      "\nTuoi         :"+tuoi+
-        //      "\nChieu cao    :"+height+
-        //      "\nCan nang     :"+weigh+
-        //      "\nGioi tinh    :"+gioiTinh+
+       
         return super.toString()+
              "\nTruong hoc   :"+school+
              "\nKhoa         :"+khoa+

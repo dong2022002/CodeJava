@@ -1,15 +1,19 @@
 package object;
 
 public class Plant extends Animal {
-    public String soil;
+  
     public Plant() {}  
-    public Plant(String species,String name,String habitat,String soil) {
-        super(species,name,habitat);
-        this.soil=soil;
+    public Plant(String name,String habitat) {
+        super(name,habitat);
+       
     }  
+    public Plant(String line) {
+        super(line);
+        
+    }
     @Override
     public String toString() {
-        return super.toString()+
-             "\nLoai dat       :"+soil;   
+        return super.toString();
+            
     }
 }

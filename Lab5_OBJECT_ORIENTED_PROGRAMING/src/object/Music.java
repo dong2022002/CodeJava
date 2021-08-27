@@ -10,6 +10,11 @@ public class Music {
         this.name=name;
         this.author=author;        
     }
+    public Music(String line) {
+        String[]  s=line.split(",");
+        this.name=s[0];
+        this.author=s[1];
+    }
     @Override
     public String toString() {
         return "Bai hat co ten:"+name+

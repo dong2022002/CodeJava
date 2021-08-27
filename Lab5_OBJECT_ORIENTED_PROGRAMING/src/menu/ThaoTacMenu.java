@@ -12,7 +12,7 @@ public class ThaoTacMenu {
 
         do{
             n=in.nextInt();
-            if(n>=0&&n<3){
+            if(n>=0&&n<7){
                 kt=false;
                 
                 }
@@ -27,7 +27,7 @@ public class ThaoTacMenu {
         int x=-1;
         
         while(x!=0){
-            XuatDuongKe();
+            //XuatDuongKe();
             System.out.println("Nhan phim 0 de tiep tuc!");
             x=in.nextInt();
         }

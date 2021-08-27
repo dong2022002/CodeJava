@@ -16,6 +16,14 @@ public class Person{
         this.weigh=weigh;
         this.gioiTinh=gioiTinh;
     }
+    public Person(String line){
+        String[] s=line.split(",");
+        this.hoVaTen=s[0];
+        this.tuoi=Integer.parseInt(s[1]);
+        this.height=Double.parseDouble(s[2]);
+        this.weigh=Double.parseDouble(s[3]);
+        this.gioiTinh=s[4];
+    }
     @Override
     public String toString() {
         return "Ho va Ten :"+hoVaTen+
