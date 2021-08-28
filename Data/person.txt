@@ -1,6 +1,7 @@
 Tran Dieu Dong,19,1.74,60,Nam
+Nguyen Van E,21,1.73,62,Nam
 Nguyen Van A,19,1.73,55,Nam
 Nguyen Ngoc B,19,1.65,59,Nu
-Nguyen Van C,20,1.8,62,Nam
 Nguyen Ngoc D,19,1.7,50,Nu
-Nguyen Van E,21,1.73,62,Nam
+Nguyen Van C,20,1.8,62,Nam
+Nguyen Van F,20,1.8,62,Nam
