@@ -14,6 +14,10 @@ public class Person{
     }
     public Person(String hoVaTen,int tuoi,double height,double weigh,String gioiTinh){
         this.hoVaTen=hoVaTen;
+        String[] s1=hoVaTen.trim().split(" ");
+        this.hoSV=s1[0];
+        this.tenLot=s1[1];
+        this.ten=s1[2];
         this.tuoi=tuoi;
         this.height=height;
         this.weigh=weigh;
@@ -31,6 +35,9 @@ public class Person{
         this.tenLot=s1[1];
         this.ten=s1[2];
     }
+    //
+   
+    //
     public void xuatThanhTieuDe(){
         System.out.format("%-20s%-10s%-12s%-12s%-10s\n---------------------------------------------------------------\n",
         "Ho va ten","Tuoi","Chieu cao","Can nang","Gioi tinh");

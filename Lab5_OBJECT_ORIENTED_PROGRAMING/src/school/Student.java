@@ -11,6 +11,14 @@ public class Student extends Person {
     
  
     public Student(){}
+    public Student(String hoVaTen,int tuoi,double height,double weigh,String gioiTinh,
+    String khoa, int tinChi, String lop, int namSinh) {
+        super(hoVaTen, tuoi, height, weigh, gioiTinh);
+        this.khoa=khoa;
+        this.tinChi=tinChi;
+        this.lop=lop;
+        this.namSinh=namSinh;
+    }
     public Student(String line) {
         super(line);
         String[] s=line.split(",");

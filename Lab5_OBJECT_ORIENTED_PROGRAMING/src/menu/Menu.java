@@ -28,7 +28,15 @@ public enum Menu{
     SOFTGIAMTHEOCHIEUCAO(18),
     SOFTGIAMTHEOCANNANG(19),
     SOFTGIAMTHEOTINCHI(20),
-    SOFTGIAMTHEONAMSINH(21);
+    SOFTGIAMTHEONAMSINH(21),
+    //
+    ADD1SV(22),
+    //XOA
+    XOATEN(23),
+    XOAHOTEN(24),
+    XOAKHOA(25),
+    XOALOP(26),
+    XOANAMSINH(27);
 
     public int value;
     private Menu(int value){

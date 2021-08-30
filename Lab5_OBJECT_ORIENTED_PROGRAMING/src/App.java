@@ -2,6 +2,7 @@
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+
 import java.io.FileNotFoundException;
 
 import menu.Menu;
@@ -21,6 +22,7 @@ public class App {
     
 
     public static void main(String[] args) throws FileNotFoundException {
+        
         //Goi cac doi tuong
         Menu menu=Menu.THOAT;
         ThaoTacMenu ttMenu=new ThaoTacMenu();
@@ -62,6 +64,18 @@ public class App {
             System.out.println("Nhap 19 de Sap xep danh sach sinh vien GIAM theo CAN NANG");
             System.out.println("Nhap 20 de Sap xep danh sach sinh vien GIAM theo TIN CHI");
             System.out.println("Nhap 21 de Sap xep danh sach sinh vien GIAM theo NAM SINH");
+            System.out.println("============================================================");
+            System.out.println("Nhap 22 de nhap them vao 1 sv tu ban phim:");
+            System.out.println("============================================================");            
+            System.out.println("======================XOA_SINH_VIEN=========================");
+            System.out.println("Nhap 23 de xoa Sinh vien theo ten");
+            System.out.println("Nhap 24 de xoa Sinh vien theo Ho ten");
+            System.out.println("Nhap 25 de xoa Sinh vien theo Khoa");
+            System.out.println("Nhap 26 de xoa Sinh vien theo Lop");
+            System.out.println("Nhap 27 de xoa Sinh vien theo Nam Sinh");
+
+
+            System.out.println();
             //Chon Menu
             t.XuatDuongKe();
             int n=t.chonMenu();
@@ -79,6 +93,7 @@ public class App {
             
             //khai bao bien 
             String line;
+            String s="";
             //
             switch(menu){
 
@@ -324,6 +339,49 @@ public class App {
                 System.out.println(dsSinhVien);
                 t.tamDung();
                 break;
+                //===========================================================
+                case ADD1SV:
+                dsSinhVien.themMotSinhVienBangCachNhapDuLieu();
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+                //XOA
+
+                case XOATEN:
+                System.out.println("Nhap ten can xoa:");
+                dsSinhVien.xoaSinhVienTheoTen(s);
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+
+                case XOAHOTEN:
+                System.out.println("Nhap ho ten can xoa:");
+                dsSinhVien.xoaSinhVienTheoHoTen(s);
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+
+                case XOAKHOA:
+                System.out.println("Nhap khoa can xoa:");
+                dsSinhVien.xoaSinhVienTheoKhoa(s);
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+
+                case XOALOP:
+                System.out.println("Nhap lop can xoa:");           
+                dsSinhVien.xoaSinhVienTheoLop(s);
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+
+                case XOANAMSINH:
+                System.out.println("Nhap Nam Sinh can xoa:");               
+                dsSinhVien.xoaSinhVienTheoNamSinh(s);
+                System.out.println(dsSinhVien);
+                t.tamDung();
+                break;
+
             }
             
         }
