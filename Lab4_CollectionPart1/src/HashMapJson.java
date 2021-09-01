@@ -3,20 +3,25 @@ import java.util.HashMap;
 import org.json.simple.JSONValue;
 
 public class HashMapJson {
-    HashMap<String,String> hashMap= new HashMap<>();
+    HashMap<String, String> hashMap = new HashMap<>();
     String json;
-    public HashMapJson() {
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
     }
     
-    public void add(String key,String value){
-       hashMap.put(key, value);
+    
+
+    public void add(String key, String value) {
+        hashMap.put(key, value);
     }
-   
-    public void TaoJson(){
-    json=JSONValue.toJSONString(hashMap);
-    }
-    public void out(){
-         System.out.println(hashMap);   
+
+    public void TaoJson() {
+        json = JSONValue.toJSONString(hashMap);
     }
 
     @Override
