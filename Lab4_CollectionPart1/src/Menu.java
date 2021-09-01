@@ -64,9 +64,9 @@ public class Menu {
     public void runListString() {
         System.out.print("Nhap do dai cua Mang n=");
         int n = in.nextInt();
-        ChuoiKyTu chuoi=new ChuoiKyTu();
+        ChuoiKyTu chuoi = new ChuoiKyTu();
         chuoi.setStr(chuoi.taoMangKyTu(n));
-        chuoi.setC(chuoi.nhapVaoMotKyTu());        
+        chuoi.setC(chuoi.nhapVaoMotKyTu());
         System.out.println(chuoi);
         chuoi.timChuCaiTuMotKyTU();
         pause();
@@ -77,6 +77,7 @@ public class Menu {
         ChuoiKyTu chuoi = new ChuoiKyTu("Hello_I_am_Iron_Man!");
         chuoi.tachChuoiThanhMang();
         System.out.println(chuoi);
+
         System.out.println("Chuyen mot chuoi thanh mot mang bang dau '_' ");
         System.out.println("Nhap vao mot chuoi");
         String a = in.next();

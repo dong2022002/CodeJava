@@ -13,8 +13,10 @@ public class HashMapJson {
     public void setJson(String json) {
         this.json = json;
     }
-    
-    
+
+    public HashMap<String, String> getHashMap() {
+        return hashMap;
+    }
 
     public void add(String key, String value) {
         hashMap.put(key, value);

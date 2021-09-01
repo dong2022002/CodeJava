@@ -1,8 +1,31 @@
 public class HinhHoc {
-    public int sd1, sd2, sd3;
+    private int sd1, sd2, sd3;
+
+    public int getSd1() {
+        return sd1;
+    }
+
+    public int getSd2() {
+        return sd2;
+    }
+
+    public int getSd3() {
+        return sd3;
+    }
+
+    public void setSd1(int sd1) {
+        this.sd1 = sd1;
+    }
+
+    public void setSd2(int sd2) {
+        this.sd2 = sd2;
+    }
+
+    public void setSd3(int sd3) {
+        this.sd3 = sd3;
+    }
 
     public HinhHoc() {
-
     }
 
     public HinhHoc(int s1, int s2, int s3) {
@@ -50,7 +73,7 @@ public class HinhHoc {
                 System.out.println("la tam giac deu");
                 break;
             case 3:
-                System.out.println("la tam giac vuonn can");
+                System.out.println("la tam giac vuong can");
                 break;
             case 4:
                 System.out.println("la tam giac vuong");

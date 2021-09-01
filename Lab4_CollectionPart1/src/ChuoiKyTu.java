@@ -1,10 +1,9 @@
 
-
 public class ChuoiKyTu {
     private String[] str;
     private char c;
     private String s;
-    Menu menu =new Menu();
+    Menu menu = new Menu();
 
     public char getC() {
         return c;
