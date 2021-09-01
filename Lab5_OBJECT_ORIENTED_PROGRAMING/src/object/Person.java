@@ -1,53 +1,118 @@
 package object;
 
-public class Person{
-    public String hoVaTen;
-    public String hoSV;
-    public String tenLot;
-    public String ten;
-    public int tuoi;
-    public double height;
-    public double weigh;
-    public String gioiTinh;
-    public Person(){
-        
+public class Person {
+    private String hoVaTen;
+    private String hoSV;
+    private String tenLot;
+    private String ten;
+    private int tuoi;
+    private double height;
+    private double weigh;
+    private String gioiTinh;
+
+    public String getGioiTinh() {
+        return gioiTinh;
     }
-    public Person(String hoVaTen,int tuoi,double height,double weigh,String gioiTinh){
-        this.hoVaTen=hoVaTen;
-        String[] s1=hoVaTen.trim().split(" ");
-        this.hoSV=s1[0];
-        this.tenLot=s1[1];
-        this.ten=s1[2];
-        this.tuoi=tuoi;
-        this.height=height;
-        this.weigh=weigh;
-        this.gioiTinh=gioiTinh;
+
+    public double getHeight() {
+        return height;
     }
-    public Person(String line){
-        String[] s=line.split(",");
-        this.hoVaTen=s[0];        
-        this.tuoi=Integer.parseInt(s[1]);
-        this.height=Double.parseDouble(s[2]);
-        this.weigh=Double.parseDouble(s[3]);
-        this.gioiTinh=s[4];
-        String[] s1=hoVaTen.trim().split(" ");
-        this.hoSV=s1[0];
-        this.tenLot=s1[1];
-        this.ten=s1[2];
+
+    public String getHoSV() {
+        return hoSV;
     }
-    //
-   
-    //
-    public void xuatThanhTieuDe(){
-        System.out.format("%-20s%-10s%-12s%-12s%-10s\n---------------------------------------------------------------\n",
-        "Ho va ten","Tuoi","Chieu cao","Can nang","Gioi tinh");
-       
+
+    public String getHoVaTen() {
+        return hoVaTen;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public String getTenLot() {
+        return tenLot;
+    }
+
+    public int getTuoi() {
+        return tuoi;
+    }
+
+    public double getWeigh() {
+        return weigh;
+    }
+
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setHoSV(String hoSV) {
+        this.hoSV = hoSV;
+    }
+
+    public void setHoVaTen(String hoVaTen) {
+        this.hoVaTen = hoVaTen;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public void setTenLot(String tenLot) {
+        this.tenLot = tenLot;
+    }
+
+    public void setTuoi(int tuoi) {
+        this.tuoi = tuoi;
+    }
+
+    public void setWeigh(double weigh) {
+        this.weigh = weigh;
+    }
+
+    public Person() {
+
+    }
+
+    public Person(String hoVaTen, int tuoi, double height, double weigh, String gioiTinh) {
+        this.hoVaTen = hoVaTen;
+        String[] s1 = hoVaTen.trim().split(" ");
+        this.hoSV = s1[0];
+        this.tenLot = s1[1];
+        this.ten = s1[2];
+        this.tuoi = tuoi;
+        this.height = height;
+        this.weigh = weigh;
+        this.gioiTinh = gioiTinh;
+    }
+
+    public Person(String line) {
+        String[] s = line.split(",");
+        this.hoVaTen = s[0];
+        this.tuoi = Integer.parseInt(s[1]);
+        this.height = Double.parseDouble(s[2]);
+        this.weigh = Double.parseDouble(s[3]);
+        this.gioiTinh = s[4];
+        String[] s1 = hoVaTen.trim().split(" ");
+        this.hoSV = s1[0];
+        this.tenLot = s1[1];
+        this.ten = s1[2];
+    }
+    
+    public void taoThanhTieuDe() {
+        System.out.format(
+                "%-20s%-10s%-12s%-12s%-10s\n---------------------------------------------------------------\n",
+                "Ho va ten", "Tuoi", "Chieu cao", "Can nang", "Gioi tinh");
     }
 
     @Override
-    public String toString() {       
-        String s=String.format("%-20s%-10s%-12s%-12s%-12s",hoVaTen,tuoi,height,weigh,gioiTinh);
+    public String toString() {
+        String s = String.format("%-20s%-10s%-12s%-12s%-12s", hoVaTen, tuoi, height, weigh, gioiTinh);
         return s;
     }
-    
+
 }

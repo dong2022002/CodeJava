@@ -5,16 +5,16 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
+
+import menu.Menu;
 
 public class QuanLySinhVien {
     List<Student> dsSinhVien = new ArrayList<>();
-    //
+
     EnumSoft kt;
     EnumStudent ktst;
-    public Scanner in = new Scanner(System.in);
+    Menu menu = new Menu();
 
-    //
     public void addSV(Student st) {
         dsSinhVien.add(st);
     }
@@ -94,36 +94,35 @@ public class QuanLySinhVien {
         switch (kt) {
             // tang
             case TANGTHEOTEN:
-                return o1.ten.compareTo(o2.ten);
+                return o1.getTen().compareTo(o2.getTen());
             case TANGTHEOHOTEN:
-                return o1.hoVaTen.compareTo(o2.hoVaTen);
+                return o1.getHoSV().compareTo(o2.getHoSV());
             case TANGTHEOTUOI:
-                return o1.tuoi > o2.tuoi ? 1 : -1;
+                return o1.getTuoi() > o2.getTuoi() ? 1 : -1;
             case TANGTHEOCHIEUCAO:
-                return o1.height > o2.height ? 1 : -1;
+                return o1.getHeight() > o2.getHeight() ? 1 : -1;
             case TANGTHEOCANNANG:
-                return o1.weigh > o2.weigh ? 1 : -1;
+                return o1.getWeigh() > o2.getWeigh() ? 1 : -1;
             case TANGTHEOTINCHI:
-                return o1.tinChi > o2.tinChi ? 1 : -1;
+                return o1.getTinChi() > o2.getTinChi() ? 1 : -1;
             case TANGTHEONAMSINH:
-                return o1.namSinh > o2.namSinh ? 1 : -1;
+                return o1.getNamSinh() > o2.getNamSinh() ? 1 : -1;
 
             // giam
             case GIAMTHEOTEN:
-                return o2.ten.compareTo(o1.ten);
+                return o2.getTen().compareTo(o1.getTen());
             case GIAMTHEOHOTEN:
-                return o2.hoVaTen.compareTo(o1.hoVaTen);
+                return o2.getHoSV().compareTo(o1.getHoSV());
             case GIAMTHEOTUOI:
-                return o1.tuoi < o2.tuoi ? 1 : -1;
+                return o1.getTuoi() < o2.getTuoi() ? 1 : -1;
             case GIAMTHEOCHIEUCAO:
-                return o1.height < o2.height ? 1 : -1;
+                return o1.getHeight() < o2.getHeight() ? 1 : -1;
             case GIAMTHEOCANNANG:
-                return o1.weigh < o2.weigh ? 1 : -1;
+                return o1.getWeigh() < o2.getWeigh() ? 1 : -1;
             case GIAMTHEOTINCHI:
-                return o1.tinChi < o2.tinChi ? 1 : -1;
+                return o1.getTinChi() < o2.getTinChi() ? 1 : -1;
             case GIAMTHEONAMSINH:
-                return o1.namSinh < o2.namSinh ? 1 : -1;
-
+                return o1.getNamSinh() < o2.getNamSinh() ? 1 : -1;
         }
         return -1;
     }
@@ -151,23 +150,23 @@ public class QuanLySinhVien {
     public void themMotSinhVienBangCachNhapDuLieu() {
         Student st = new Student();
         System.out.print("Nhap vao Ho va Ten:");
-        st.hoVaTen = in.nextLine();
+        st.setHoVaTen(menu.in.nextLine());
         System.out.print("Nhap vao tuoi sv:");
-        st.tuoi = in.nextInt();
+        st.setTuoi(menu.in.nextInt());
         System.out.print("Nhap vao chieu cao:");
-        st.height = in.nextDouble();
+        st.setHeight(menu.in.nextDouble());
         System.out.print("Nhap vao can nang:");
-        st.weigh = in.nextDouble();
+        st.setWeigh(menu.in.nextDouble());
         System.out.print("Nhap vao GioiTinh:");
-        st.gioiTinh = in.next();
+        st.setGioiTinh(menu.in.next());
         System.out.print("Nhap vao Khoa:");
-        st.khoa = in.next();
+        st.setKhoa(menu.in.next());
         System.out.print("Nhap vao Tin Chi:");
-        st.tinChi = in.nextInt();
+        st.setTinChi(menu.in.nextInt());
         System.out.print("Nhap vao lop:");
-        st.lop = in.next();
+        st.setLop(menu.in.next());
         System.out.print("Nhap vao nam Sinh:");
-        st.namSinh = in.nextInt();
+        st.setNamSinh(menu.in.nextInt());
         addSV(st);
     }
 
@@ -175,7 +174,7 @@ public class QuanLySinhVien {
     public void removeSV(List<Student> st) {
         Boolean kt = dsSinhVien.removeAll(st);
         if (kt == true)
-            System.out.println("Xoa thanh cong");
+            System.out.println("XOA THANH CONG!!!!!");
         else
             System.out.println("ko co doi tuong trung khop de xoa!!!");
 
@@ -193,52 +192,53 @@ public class QuanLySinhVien {
     }
 
     public void xoaSinhVienTheoTen(String s) {
-        s = in.next();
+        System.out.print("Nhap vao noi dung can xoa: ");
+        s = menu.in.next();
         xoaSV(EnumStudent.TEN, s);
     }
 
     public void xoaSinhVienTheoHoTen(String s) {
-        s = in.next();
+        s = menu.in.next();
         xoaSV(EnumStudent.HOTEN, s);
     }
 
     public void xoaSinhVienTheoKhoa(String s) {
-        s = in.next();
+        s = menu.in.next();
         xoaSV(EnumStudent.KHOA, s);
     }
 
     public void xoaSinhVienTheoLop(String s) {
-        s = in.next();
+        s = menu.in.next();
         xoaSV(EnumStudent.LOP, s);
     }
 
     public void xoaSinhVienTheoNamSinh(String s) {
-        s = in.next();
+        s = menu.in.next();
         xoaSV(EnumStudent.NAMSINH, s);
     }
 
     private boolean kiemTraDieuKien(EnumStudent ktst, String s, Student st) {
-        // int namSinh=Integer.parseInt(s);
+
         switch (ktst) {
             case TEN:
-                if (s.compareTo(st.ten) == 0)
+                if (s.compareTo(st.getTen()) == 0)
                     return true;
                 break;
             case HOTEN:
-                if (s.compareTo(st.hoSV) == 0)
+                if (s.compareTo(st.getHoSV()) == 0)
                     return true;
                 break;
             case KHOA:
-                if (s.compareTo(st.khoa) == 0)
+                if (s.compareTo(st.getKhoa()) == 0)
                     return true;
                 break;
             case LOP:
-                if (s.compareTo(st.lop) == 0)
+                if (s.compareTo(st.getLop()) == 0)
                     return true;
                 break;
             case NAMSINH:
                 int namSinh = Integer.parseInt(s);
-                if (namSinh == st.namSinh)
+                if (namSinh == st.getNamSinh())
                     return true;
                 break;
         }
@@ -246,25 +246,19 @@ public class QuanLySinhVien {
         return false;
     }
 
-    // Dinh dang ket qua
-    public String xuatThanhTieuDe() {
-        String s = String.format("%-20s%-10s%-12s%-12s%-12s%-10s%-12s%-10s%-12s\n\n", "Ho va ten", "Tuoi", "Chieu cao",
-                "Can nang", "Gioi tinh", "Khoa", "Tin chi", "lop", "Nam Sinh");
-        return s;
-    }
-
     @Override
     public String toString() {
-        String tieuDe = xuatThanhTieuDe();
+        String tieuDe = String.format("%-20s%-10s%-12s%-12s%-12s%-10s%-12s%-10s%-12s\n", "Ho va ten", "Tuoi",
+                "Chieu cao", "Can nang", "Gioi tinh", "Khoa", "Tin chi", "lop", "Nam Sinh");
         if (dsSinhVien.isEmpty())
             System.out.println("-----------Danh Sach Trong!!!!!!-----------");
         else
             System.out.println(tieuDe);
-        String s = "";
-        for (Student st : dsSinhVien) {
-            s += st + "\n";
+        String st = "";
+        for (Student s : dsSinhVien) {
+            st += s + "\n";
         }
-        return s;
+        return st;
     }
 
 }
