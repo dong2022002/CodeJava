@@ -97,7 +97,6 @@ public class Run {
     }
 
     public void runPerson() {
-        person.taoThanhTieuDe();
         runObject(EnumMenu.PERSON);
     }
 
@@ -128,7 +127,8 @@ public class Run {
         System.out.println(dsSinhVien);
         menu.pause();
     }
-    public void runDSSV(){
+
+    public void runDSSV() {
         System.out.println("==== Danh sach hien tai ====");
         System.out.println(dsSinhVien);
         menu.pause();
@@ -331,6 +331,80 @@ public class Run {
 
     public void runXoaSVtheoNamSinh() {
         XoaSV(EnumMenu.XOANAMSINH);
+    }
+
+    private void runSuaSVtheoHoVaTen(EnumMenu eMenu) {
+        System.out.println("Danh sach ban dau :");
+        System.out.println(dsSinhVien);
+        kieuSua(eMenu);
+        System.out.println("Danh sach KET QUA:");
+        System.out.println(dsSinhVien);
+        menu.pause();
+    }
+
+    private void kieuSua(EnumMenu eMenu) {
+        switch (eMenu) {
+            case SUATEN:
+                dsSinhVien.suaTen();
+                break;
+            case SUATINCHI:
+                dsSinhVien.suaTinChi();
+                break;
+            case SUANAMSINH:
+                dsSinhVien.suaNamSinh();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void runSuaTen() {
+        runSuaSVtheoHoVaTen(EnumMenu.SUATEN);
+    }
+
+    public void runSuaTinChi() {
+        runSuaSVtheoHoVaTen(EnumMenu.SUATINCHI);
+    }
+
+    public void runSuaNamSinh() {
+        runSuaSVtheoHoVaTen(EnumMenu.SUANAMSINH);
+    }
+
+    private void runTimSV(EnumMenu eMenu) {
+        System.out.println("Danh sach hien tai:");
+        System.out.println(dsSinhVien);
+        kieuTimSV(eMenu);
+        menu.pause();
+    }
+
+    private void kieuTimSV(EnumMenu eMenu) {
+        switch (eMenu) {
+            case TIMTEN:
+                dsSinhVien.timSinhVienTheoTen();
+                break;
+            case TIMTINCHI:
+                dsSinhVien.timSinhVienTheoTinChi();
+                break;
+            case TIMNAMSINH:
+                dsSinhVien.timSinhVienTheoNamSinh();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void runTimTen() {
+        runTimSV(EnumMenu.TIMTEN);
+    }
+
+    public void runTimTinChi() {
+        runTimSV(EnumMenu.TIMTINCHI);
+    }
+
+    public void runTimNamSinh() {
+        runTimSV(EnumMenu.TIMNAMSINH);
     }
 
 }

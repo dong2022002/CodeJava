@@ -80,10 +80,10 @@ public class Person {
 
     public Person(String hoVaTen, int tuoi, double height, double weigh, String gioiTinh) {
         this.hoVaTen = hoVaTen;
-        String[] s1 = hoVaTen.trim().split(" ");
-        this.hoSV = s1[0];
-        this.tenLot = s1[1];
-        this.ten = s1[2];
+        String[] str = hoVaTen.trim().split(" ");
+        this.hoSV = str[0];
+        this.tenLot = str[1];
+        this.ten = str[2];
         this.tuoi = tuoi;
         this.height = height;
         this.weigh = weigh;
@@ -97,16 +97,10 @@ public class Person {
         this.height = Double.parseDouble(s[2]);
         this.weigh = Double.parseDouble(s[3]);
         this.gioiTinh = s[4];
-        String[] s1 = hoVaTen.trim().split(" ");
-        this.hoSV = s1[0];
-        this.tenLot = s1[1];
-        this.ten = s1[2];
-    }
-    
-    public void taoThanhTieuDe() {
-        System.out.format(
-                "%-20s%-10s%-12s%-12s%-10s\n---------------------------------------------------------------\n",
-                "Ho va ten", "Tuoi", "Chieu cao", "Can nang", "Gioi tinh");
+        String[] str = hoVaTen.trim().split(" ");
+        this.hoSV = str[0];
+        this.tenLot = str[1];
+        this.ten = str[2];
     }
 
     @Override

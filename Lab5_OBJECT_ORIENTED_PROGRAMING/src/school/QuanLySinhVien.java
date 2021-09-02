@@ -5,17 +5,17 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 import menu.Menu;
 
 public class QuanLySinhVien {
     List<Student> dsSinhVien = new ArrayList<>();
-
-    EnumSoft kt;
-    EnumStudent ktst;
     Menu menu = new Menu();
 
-    public void addSV(Student st) {
+    Boolean kt;
+
+    private void addSV(Student st) {
         dsSinhVien.add(st);
     }
 
@@ -78,20 +78,20 @@ public class QuanLySinhVien {
         SapXep(EnumSoft.GIAMTHEONAMSINH);
     }
 
-    public void SapXep(EnumSoft kt) {
+    private void SapXep(EnumSoft eMenu) {
         dsSinhVien.sort(new Comparator<Student>() {
 
             @Override
             public int compare(Student o1, Student o2) {
 
-                return kieuSapXep(kt, o1, o2);
+                return kieuSapXep(eMenu, o1, o2);
             }
 
         });
     }
 
-    public int kieuSapXep(EnumSoft kt, Student o1, Student o2) {
-        switch (kt) {
+    private int kieuSapXep(EnumSoft eMenu, Student o1, Student o2) {
+        switch (eMenu) {
             // tang
             case TANGTHEOTEN:
                 return o1.getTen().compareTo(o2.getTen());
@@ -171,7 +171,7 @@ public class QuanLySinhVien {
     }
 
     // Xoa
-    public void removeSV(List<Student> st) {
+    private void removeSV(List<Student> st) {
         Boolean kt = dsSinhVien.removeAll(st);
         if (kt == true)
             System.out.println("XOA THANH CONG!!!!!");
@@ -180,11 +180,12 @@ public class QuanLySinhVien {
 
     }
 
-    public void xoaSV(EnumStudent ktst, String s) {
+    private void xoaSV(EnumStudent ktst, String s) {
         List<Student> dsXoa = new ArrayList<>();
         dsSinhVien.forEach(st -> {
-            if (kiemTraDieuKien(ktst, s, st))
+            if (kiemTraDieuKien(ktst, s, st)) {
                 dsXoa.add(st);
+            }
         });
 
         removeSV(dsXoa);
@@ -241,9 +242,122 @@ public class QuanLySinhVien {
                 if (namSinh == st.getNamSinh())
                     return true;
                 break;
+            default:
+                break;
+        }
+        return false;
+    }
+
+    private void suaThongTinSV(EnumStudent eStudent) {
+        System.out.print("Nhap vao ho va Ten SV can sua: ");
+        menu.in = new Scanner(System.in);
+        String hoVaTen = menu.in.nextLine();
+        kt = true;
+        dsSinhVien.forEach(sv -> {
+            if (hoVaTen.compareTo(sv.getHoVaTen()) == 0) {
+                kieuSua(eStudent, sv);
+                kt = false;
+            }
+        });
+        if (kt) {
+            System.out.println("Khong tim thay ho va ten tuong ung !!!!!!!!!!!");
         }
 
-        return false;
+    }
+
+    private void kieuSua(EnumStudent eStudent, Student sv) {
+        switch (eStudent) {
+            case TEN:
+                System.out.print("Sua ten: " + sv.getTen() + " lai thanh:");
+                String ten = menu.in.next();
+                sv.setTen(ten);
+                sv.setHoVaTen(sv.getHoSV() + " " + sv.getTenLot() + " " + sv.getTen());
+                System.out.println("SUA THANH CONG !!!");
+                break;
+            case TINCHI:
+                System.out.print("Sua tin chi lai thanh :");
+                int tinChi = menu.in.nextInt();
+                sv.setTinChi(tinChi);
+                System.out.println("SUA THANH CONG !!!");
+                break;
+            case NAMSINH:
+                System.out.print("sua nam sinh lai thanh :");
+                int namSinh = menu.in.nextInt();
+                sv.setNamSinh(namSinh);
+                System.out.println("SUA THANH CONG !!!");
+            default:
+                break;
+        }
+    }
+
+    public void suaTen() {
+        suaThongTinSV(EnumStudent.TEN);
+    }
+
+    public void suaTinChi() {
+        suaThongTinSV(EnumStudent.TINCHI);
+    }
+
+    public void suaNamSinh() {
+        suaThongTinSV(EnumStudent.NAMSINH);
+    }
+
+    private void timSinhVien(EnumStudent eStudent, String s) {
+        QuanLySinhVien dsSV = new QuanLySinhVien();
+        dsSinhVien.forEach(sv -> {
+            if (kieuTimSinhVien(eStudent, sv, s)) {
+                dsSV.addSV(sv);
+            }
+
+        });
+        System.out.println("Danh sach ket qua :"); 
+        System.out.println(dsSV);
+    }
+
+    private boolean kieuTimSinhVien(EnumStudent eStudent, Student sv, String s) {
+        switch (eStudent) {
+            case TEN:
+                if (sv.getTen().compareTo(s) == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            case TINCHI:
+                int tinChi = Integer.parseInt(s);
+                if (sv.getTinChi() == tinChi) {
+                    return true;
+                } else {
+                    return false;
+                }
+            case NAMSINH:
+                int namSinh = Integer.parseInt(s);
+                if (sv.getNamSinh() == namSinh) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            default:
+                return false;
+        }
+    }
+
+    public void timSinhVienTheoTen() {
+        System.out.print("Nhap vao Ten can tim kiem: ");
+        String ten = menu.in.next();
+        timSinhVien(EnumStudent.TEN, ten);
+    }
+
+    public void timSinhVienTheoTinChi() {
+        System.out.print("Nhap vao Tin chi can tim kiem: ");
+        String tinChi = menu.in.next();
+        timSinhVien(EnumStudent.TINCHI, tinChi);
+    }
+
+    public void timSinhVienTheoNamSinh() {
+        System.out.print("Nhap vao Nam Sinh can tim kiem: ");
+        String namSinh = menu.in.next();
+        timSinhVien(EnumStudent.NAMSINH, namSinh);
     }
 
     @Override

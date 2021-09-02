@@ -60,10 +60,15 @@ public class Menu {
         System.out.println("Nhap 26 de xoa Sinh vien theo Lop");
         System.out.println("Nhap 27 de xoa Sinh vien theo Nam Sinh");
         System.out.println("======================DANH SACH SINH VIEN ===================");
-
         System.out.println("Nhap 28 de xem danh sach sinh vien hien tai");
-
-        System.out.println("============================================================");
+        System.out.println("===================== SUA DS SINH VIEN ======================");
+        System.out.println("Nhap 29 de sua ten sv");
+        System.out.println("Nhap 30 de sua Tin chi sv");
+        System.out.println("Nhap 31 de sua nam sinh sv");        
+        System.out.println("===================== TIM SINH VIEN =========================");
+        System.out.println("Nhap 32 de tim ten sv");
+        System.out.println("Nhap 33 de tim Tin chi sv");
+        System.out.println("Nhap 34 de tim nam sinh sv");
         System.out.print("Chon mot chuc nang:");
     }
 

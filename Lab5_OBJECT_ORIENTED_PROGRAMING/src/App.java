@@ -103,6 +103,26 @@ public class App {
                     run.runXoaSVtheoNamSinh();
                     break;
 
+                case SUATEN:
+                    run.runSuaTen();
+                    break;
+                case SUANAMSINH:
+                    run.runSuaNamSinh();
+                    break;
+                case SUATINCHI:
+                    run.runSuaTinChi();
+                    break;
+
+                case TIMTEN:
+                    run.runTimTen();
+                    break;
+                case TIMTINCHI:
+                    run.runTimTinChi();
+                    break;
+                case TIMNAMSINH:
+                    run.runTimNamSinh();
+                    break;
+
                 default:
                     menu.in.close();
                     return;

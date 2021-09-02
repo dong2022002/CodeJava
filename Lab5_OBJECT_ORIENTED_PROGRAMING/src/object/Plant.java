@@ -4,6 +4,22 @@ public class Plant {
     private String name;
     private String habitat;
 
+    public String getHabitat() {
+        return habitat;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setHabitat(String habitat) {
+        this.habitat = habitat;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Plant() {
     }
 

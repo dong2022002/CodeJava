@@ -18,7 +18,11 @@ public enum EnumMenu{
     // XOA
     XOATEN(23), XOAHOTEN(24), XOAKHOA(25), XOALOP(26), XOANAMSINH(27),
     //Xem danh sach hien tai
-    DSSV(28);
+    DSSV(28),
+    //replace
+    SUATEN(29),SUATINCHI(30),SUANAMSINH(31),
+    //Find
+    TIMTEN(32),TIMTINCHI(33),TIMNAMSINH(34);
 
     public int value;
 
