@@ -25,16 +25,17 @@ public class Teacher extends Person {
     public Teacher() {
     }
 
-    public Teacher(String hoVaTen, int tuoi, double height, double weigh, String gioiTinh, String chucVu,
-            String bangCap) {
-        super(hoVaTen, tuoi, height, weigh, gioiTinh);
-        this.chucVu = chucVu;
-        this.bangCap = bangCap;
+    public Teacher(String line) {
+        super(line);
+        String[] s=line.split(",");
+        this.chucVu = s[5];
+        this.bangCap = s[6];
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\nChuc vu hien tai    :" + chucVu + "\nBang cap            :" + bangCap;
+       
+        return super.toString() + String.format("%-10s%-10s", bangCap, chucVu);
     }
 
 }

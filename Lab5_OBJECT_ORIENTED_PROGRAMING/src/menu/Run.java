@@ -9,6 +9,8 @@ import object.Computer;
 import object.Music;
 import object.Person;
 import object.Plant;
+import school.KhoaCNTT;
+import school.QuanLyGiangVien;
 import school.QuanLySinhVien;
 
 public class Run {
@@ -20,6 +22,8 @@ public class Run {
     Music music = new Music();
     Plant plant = new Plant();
     QuanLySinhVien dsSinhVien = new QuanLySinhVien();
+    QuanLyGiangVien dsGiangVien = new QuanLyGiangVien();
+    KhoaCNTT khoaCNTT=new KhoaCNTT();
 
     private String line = "";
 
@@ -405,6 +409,18 @@ public class Run {
 
     public void runTimNamSinh() {
         runTimSV(EnumMenu.TIMNAMSINH);
+    }
+
+    public void runDSGiangVien() {
+        System.out.println("Du lieu trong file D:/Data/DsGiangVien.txt:\n");
+        dsGiangVien = dsGiangVien.taoDanhSachGiangVienTuFile();
+        System.out.println(dsGiangVien);
+        menu.pause();
+    }
+
+    public void runDSSVCNTT(){
+        System.out.println(khoaCNTT);
+        menu.pause();
     }
 
 }

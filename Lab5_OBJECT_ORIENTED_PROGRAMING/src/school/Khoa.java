@@ -2,11 +2,11 @@ package school;
 
 public abstract class Khoa {
     private String tenKhoa;
-    private String chuongTrinhDaoTao;
+    private String thoiGianDaoTao;
     private String ngayThanhLap;
 
     public String getChuongTrinhDaoTao() {
-        return chuongTrinhDaoTao;
+        return thoiGianDaoTao;
     }
 
     public String getNgayThanhLap() {
@@ -17,8 +17,8 @@ public abstract class Khoa {
         return tenKhoa;
     }
 
-    public void setChuongTrinhDaoTao(String chuongTrinhDaoTao) {
-        this.chuongTrinhDaoTao = chuongTrinhDaoTao;
+    public void setThoiGianDaoTao(String chuongTrinhDaoTao) {
+        this.thoiGianDaoTao = chuongTrinhDaoTao;
     }
 
     public void setNgayThanhLap(String ngayThanhLap) {
@@ -31,14 +31,24 @@ public abstract class Khoa {
 
     public Khoa(String tenKhoa, String chuongTrinhDaoTao, String ngayThanhLap) {
         this.tenKhoa = tenKhoa;
-        this.chuongTrinhDaoTao = chuongTrinhDaoTao;
+        this.thoiGianDaoTao = chuongTrinhDaoTao;
         this.ngayThanhLap = ngayThanhLap;
+    }
+
+    public Khoa(String line) {
+        String[] s = line.split("_");
+        this.tenKhoa = s[0];
+        this.ngayThanhLap = s[1];
+        this.thoiGianDaoTao = s[2];
+    }
+
+    public Khoa() {
     }
 
     @Override
     public String toString() {
-        return "Ten khoa            :" + tenKhoa + "\nChuong trinh dao tao:" + chuongTrinhDaoTao
-                + "\nNgay thanh lap      :" + ngayThanhLap;
+        return "Ten khoa: " + tenKhoa + "   ngay thanh lap: " + ngayThanhLap + " thoi gian dao tao: " + thoiGianDaoTao
+                + "\n";
     }
 
 }

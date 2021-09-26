@@ -22,7 +22,11 @@ public enum EnumMenu{
     //replace
     SUATEN(29),SUATINCHI(30),SUANAMSINH(31),
     //Find
-    TIMTEN(32),TIMTINCHI(33),TIMNAMSINH(34);
+    TIMTEN(32),TIMTINCHI(33),TIMNAMSINH(34),
+    //Giang Vien
+    DSGIANGVIEN(35),
+    //CNTT
+    DSSINHVIENCNTT(36);
 
     public int value;
 

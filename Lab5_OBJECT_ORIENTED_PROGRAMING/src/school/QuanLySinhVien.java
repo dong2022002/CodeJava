@@ -11,9 +11,9 @@ import menu.Menu;
 
 public class QuanLySinhVien {
     List<Student> dsSinhVien = new ArrayList<>();
-    Menu menu = new Menu();
+    private Menu menu = new Menu();
 
-    Boolean kt;
+    private Boolean kt;
 
     private void addSV(Student st) {
         dsSinhVien.add(st);
@@ -310,7 +310,7 @@ public class QuanLySinhVien {
             }
 
         });
-        System.out.println("Danh sach ket qua :"); 
+        System.out.println("Danh sach ket qua :");
         System.out.println(dsSV);
     }
 
@@ -360,19 +360,32 @@ public class QuanLySinhVien {
         timSinhVien(EnumStudent.NAMSINH, namSinh);
     }
 
+    public QuanLySinhVien dsSVCNTT() {
+        QuanLySinhVien dsCNTT = new QuanLySinhVien();
+        dsSinhVien.forEach(sv -> {
+            if (sv.getKhoa().compareTo("CNTT") == 0)
+                dsCNTT.addSV(sv);
+        });
+        return dsCNTT;
+    }
+
     @Override
     public String toString() {
+        String st = "";
         String tieuDe = String.format("%-20s%-10s%-12s%-12s%-12s%-10s%-12s%-10s%-12s\n", "Ho va ten", "Tuoi",
                 "Chieu cao", "Can nang", "Gioi tinh", "Khoa", "Tin chi", "lop", "Nam Sinh");
-        if (dsSinhVien.isEmpty())
+        if (dsSinhVien.isEmpty()) {
             System.out.println("-----------Danh Sach Trong!!!!!!-----------");
-        else
+        } else {
             System.out.println(tieuDe);
-        String st = "";
-        for (Student s : dsSinhVien) {
-            st += s + "\n";
+
+            for (Student s : dsSinhVien) {
+                st += s + "\n";
+            }
+            return st;
         }
         return st;
+
     }
 
 }

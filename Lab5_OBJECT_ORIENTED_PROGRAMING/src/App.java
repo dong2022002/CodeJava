@@ -123,6 +123,14 @@ public class App {
                     run.runTimNamSinh();
                     break;
 
+                case DSGIANGVIEN:
+                    run.runDSGiangVien();
+                    break;
+
+                case DSSINHVIENCNTT:
+                    run.runDSSVCNTT();
+                    break;
+
                 default:
                     menu.in.close();
                     return;

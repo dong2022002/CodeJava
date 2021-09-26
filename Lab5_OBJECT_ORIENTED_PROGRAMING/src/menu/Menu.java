@@ -64,11 +64,15 @@ public class Menu {
         System.out.println("===================== SUA DS SINH VIEN ======================");
         System.out.println("Nhap 29 de sua ten sv");
         System.out.println("Nhap 30 de sua Tin chi sv");
-        System.out.println("Nhap 31 de sua nam sinh sv");        
+        System.out.println("Nhap 31 de sua nam sinh sv");
         System.out.println("===================== TIM SINH VIEN =========================");
         System.out.println("Nhap 32 de tim ten sv");
         System.out.println("Nhap 33 de tim Tin chi sv");
         System.out.println("Nhap 34 de tim nam sinh sv");
+        System.out.println("=====================QUAN LY GIANG VIEN=========================");
+        System.out.println("Nhap 35 de xem danh sach Giang Vien hien tai");
+        System.out.println("=====================SINH VIEN CNTT=============================");
+        System.out.println("Nhap 36 de xem danh sach sinh vien CNTT hien tai");
         System.out.print("Chon mot chuc nang:");
     }
 
